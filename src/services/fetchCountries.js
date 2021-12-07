@@ -18,6 +18,7 @@ export async function fetchCountries() {
 
 export function getRandomCountries(countries, continents = continentsObj, amount) {
   const selectedRegions = continents.filter(({ selected }) => selected);
+  const unselectedRegions = continents.filter(({ selected }) => !selected);
   const MAX_NUM = countries.length;
   let countriesIndex = [];
   let randomCountries = [];
@@ -38,7 +39,7 @@ export function getRandomCountries(countries, continents = continentsObj, amount
   
   const checkCountries = () => (selectedRegions.every(({ name }) => (
     randomCountries.some(({ region }) => region === name)
-  )));
+  )) && unselectedRegions.every(({ name }) => !randomCountries.some(({ region }) => region === name)));
   
   getRandomIndexes();
   getCountries();

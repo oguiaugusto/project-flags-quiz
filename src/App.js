@@ -11,6 +11,7 @@ class App extends Component {
       countries: [],
     };
 
+    this.setRandomCountries = this.setRandomCountries.bind(this);
     this.getCountries = this.getCountries.bind(this);
   }
 
@@ -18,17 +19,25 @@ class App extends Component {
     this.getCountries();
   }
 
+  setRandomCountries(continents, amount) {
+    const { allCountries } = this.state;
+    const countries = getRandomCountries(allCountries, continents, amount);
+    this.setState({ countries });
+  }
+
   async getCountries() {
     const allCountries = await fetchCountries();
     this.setState({ allCountries }, () => {
-      const { allCountries } = this.state;
-      this.setState({ countries: getRandomCountries(allCountries, undefined, 10) })
+      this.setRandomCountries(undefined, 10);
     });
   }
 
   render() {
     return (
-      <Routes />
+      <>
+        <h1>Qual a Bandeira?</h1>
+        <Routes setRandomCountries={ this.setRandomCountries } />
+      </>
     );
   }
 }

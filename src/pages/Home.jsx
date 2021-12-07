@@ -5,7 +5,6 @@ class Home extends Component {
   render() {
     return (
       <div className="home-page">
-        <h1>Qual a Bandeira?</h1>
         <div className="home-menu">
           <div className="btn-menu">
             <Link to="/play">Jogar</Link>
