@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Home, Play, Config, NotFound } from '../pages';
+import { Home, Play, Config, About, NotFound } from '../pages';
 
 class Routes extends Component {
   render() {
@@ -9,6 +9,7 @@ class Routes extends Component {
         <Switch>
           <Route exact path="/config" component={ Config } />
           <Route exact path="/play" component={ Play } />
+          <Route exact path="/about" component={ About } />
           <Route exact path="/" component={ Home } />
           <Route exact path="*" component={ NotFound } />
         </Switch>
