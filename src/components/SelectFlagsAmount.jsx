@@ -18,45 +18,25 @@ class SelectFlagsAmount extends Component {
           />
           10
         </label>
-        <label htmlFor="flags-30">
+        <label htmlFor="flags-15">
           <input
             type="radio"
             name="flagsAmount"
-            id="flags-30"
-            value="30"
+            id="flags-15"
+            value="15"
             onChange={ handleRadioChange }
           />
-          30
+          15
         </label>
-        <label htmlFor="flags-50">
+        <label htmlFor="flags-20">
           <input
             type="radio"
             name="flagsAmount"
-            id="flags-50"
-            value="50"
+            id="flags-20"
+            value="20"
             onChange={ handleRadioChange }
           />
-          50
-        </label>
-        <label htmlFor="flags-100">
-          <input
-            type="radio"
-            name="flagsAmount"
-            id="flags-100"
-            value="100"
-            onChange={ handleRadioChange }
-          />
-          100
-        </label>
-        <label htmlFor="flags-250">
-          <input
-            type="radio"
-            name="flagsAmount"
-            id="flags-250"
-            value="250"
-            onChange={ handleRadioChange }
-          />
-          250
+          20
         </label>
       </div>
     );

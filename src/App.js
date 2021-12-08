@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { fetchCountries, getRandomCountries } from './services/fetchCountries';
+import { fetchCountries } from './services/fetchCountries';
+import { defaultContinents, getRandomCountries } from './services/utilities';
 import Routes from './components/Routes';
 
 class App extends Component {
@@ -9,34 +10,40 @@ class App extends Component {
     this.state = {
       allCountries: [],
       countries: [],
+
+      loading: true,
     };
 
-    this.setRandomCountries = this.setRandomCountries.bind(this);
-    this.getCountries = this.getCountries.bind(this);
+    this.getAllCountries = this.getAllCountries.bind(this);
+    this.setCountries = this.setCountries.bind(this);
   }
 
   componentDidMount() {
-    this.getCountries();
+    this.getAllCountries();
   }
 
-  setRandomCountries(continents, amount) {
-    const { allCountries } = this.state;
-    const countries = getRandomCountries(allCountries, continents, amount);
-    this.setState({ countries });
-  }
-
-  async getCountries() {
-    const allCountries = await fetchCountries();
-    this.setState({ allCountries }, () => {
-      this.setRandomCountries(undefined, 10);
+  async getAllCountries() {
+    this.setState({ allCountries: await fetchCountries() }, () => {
+      this.setState({ loading: false });
+      this.setCountries();
     });
+  }
+
+  setCountries(continents = defaultContinents, amount = 10) {
+    const { allCountries } = this.state;
+    const countriesArr = continents.map(({ name }) => (
+      allCountries.filter(({ region }) => region === name)
+    ));
+
+    const countries = getRandomCountries(countriesArr, amount).sort(() => Math.random() - 0.5);
+    this.setState({ countries });
   }
 
   render() {
     return (
       <>
         <h1>Qual a Bandeira?</h1>
-        <Routes setRandomCountries={ this.setRandomCountries } />
+        <Routes setCountries={ this.setCountries } />
       </>
     );
   }
