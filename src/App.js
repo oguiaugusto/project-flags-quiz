@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchCountries } from './services/fetchCountries';
 import { defaultContinents, getRandomCountries } from './services/utilities';
 import Routes from './components/Routes';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -40,10 +41,12 @@ class App extends Component {
   }
 
   render() {
+    const { allCountries, countries } = this.state;
+    const routesObj = { allCountries, countries, setCountries: this.setCountries };
     return (
       <>
         <h1>Qual a Bandeira?</h1>
-        <Routes setCountries={ this.setCountries } />
+        <Routes { ...routesObj } />
       </>
     );
   }

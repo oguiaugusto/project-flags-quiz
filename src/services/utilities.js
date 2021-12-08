@@ -29,4 +29,12 @@ const getRandomCountries = (arrays, num) => {
   return countries;
 };
 
-export { defaultContinents, getRandomNumber, getRandomCountries };
+const shuffleArray = (arr) => {
+  for (let i = 0; i < arr.length; i += 1) {
+    const r = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[r]] = [arr[r], arr[i]];
+  }
+  return arr;
+}
+
+export { defaultContinents, getRandomNumber, getRandomCountries, shuffleArray };

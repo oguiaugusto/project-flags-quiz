@@ -5,11 +5,11 @@ import { Home, Play, Config, About, NotFound } from '../pages';
 
 class Routes extends Component {
   render() {
-    const { setCountries } = this.props;
+    const { allCountries, countries, setCountries } = this.props;
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/play" component={ Play } />
+          <Route exact path="/play" render={(props) => <Play { ...props } allCountries={ allCountries } countries={ countries } />} />
           <Route exact path="/about" component={ About } />
           <Route exact path="/" component={ Home } />
           <Route exact path="/config" render={(props) => <Config { ...props } setCountries={ setCountries } />} />
@@ -21,6 +21,8 @@ class Routes extends Component {
 }
 
 Routes.propTypes = {
+  allCountries: PropTypes.arrayOf(PropTypes.any),
+  countries: PropTypes.arrayOf(PropTypes.any),
   setCountries: PropTypes.func.isRequired,
 };
 
