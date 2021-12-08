@@ -12,7 +12,7 @@ class Routes extends Component {
           <Route exact path="/play" component={ Play } />
           <Route exact path="/about" component={ About } />
           <Route exact path="/" component={ Home } />
-          <Route exact path="/config" render={(props) => <Config setCountries={ setCountries } />} />
+          <Route exact path="/config" render={(props) => <Config { ...props } setCountries={ setCountries } />} />
           <Route exact path="*" component={ NotFound } />
         </Switch>
       </BrowserRouter>

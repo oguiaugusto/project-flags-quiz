@@ -14,6 +14,8 @@ class Config extends Component {
       Asia: true,
       Europe: true,
       Oceania: true,
+
+      saving: false,
     };
 
     this.handleRadioChange = this.handleRadioChange.bind(this);
@@ -21,6 +23,10 @@ class Config extends Component {
     this.createContinentsObject = this.createContinentsObject.bind(this);
     this.disableSaveButton = this.disableSaveButton.bind(this);
     this.saveChanges = this.saveChanges.bind(this);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.saveTO);
   }
 
   handleRadioChange({ target: { name, value, checked }}) {
@@ -60,6 +66,12 @@ class Config extends Component {
     const { setCountries } = this.props;
     const { flagsAmount } = this.state;
     setCountries(continents, flagsAmount);
+
+    this.setState({ saving: true }, () => {
+      this.saveTO = setTimeout(() => {
+        this.props.history.push('/');
+      }, 1500);
+    });
   }
 
   render() {
@@ -70,6 +82,7 @@ class Config extends Component {
       Asia,
       Europe,
       Oceania,
+      saving,
     } = this.state;
 
     const defaultCheck = flagsAmount === 10;
@@ -96,6 +109,7 @@ class Config extends Component {
           <SelectedContinents { ...selectedContinentsProps } />
           <button type="button" onClick={ this.saveChanges } disabled={ this.disableSaveButton() }>Salvar</button>
           {this.disableSaveButton() ? <p className="form-error">Sem bandeiras o suficiente</p> : null}
+          {saving ? <p>Salvando...</p> : null}
         </div>
       </div>
     );
