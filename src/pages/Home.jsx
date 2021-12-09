@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
-import { MenuButton } from '../components/styledComponents';
+import { PageMenu, MenuButton } from '../components/styledComponents';
 
 class Home extends Component {
   render() {
@@ -11,7 +11,7 @@ class Home extends Component {
     </div>;
     return (
       <div className="home-page">
-        <div className="home-menu">
+        <PageMenu className="home-menu">
           <MenuButton className="btn-menu">
             <Link to="/play">
               <div>Jogar</div>
@@ -27,7 +27,7 @@ class Home extends Component {
               <div>Sobre</div>
             </Link>
           </MenuButton>
-        </div>
+        </PageMenu>
       </div>
     );
   }

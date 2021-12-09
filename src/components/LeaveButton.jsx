@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Button } from './styledComponents';
 
 class LeaveButton extends Component {
   render() {
-    const { props: { handleLeave, children } } = this;
+    const { props: { handleLeave, children, width } } = this;
 
     return (
-      <button
+      <Button
+        bgColor="#cf4646"
+        color="#eee"
+        width={ width }
         type="button"
-        className="btn btn-leave"
         onClick={ handleLeave }
       >
         {children}
-      </button>
+      </Button>
     );
   }
 }
@@ -20,6 +23,11 @@ class LeaveButton extends Component {
 LeaveButton.propTypes = {
   handleLeave: PropTypes.func.isRequired,
   children: PropTypes.string.isRequired,
+  width: PropTypes.string,
+};
+
+LeaveButton.defaultProps = {
+  width: 'auto',
 };
 
 export default LeaveButton;
