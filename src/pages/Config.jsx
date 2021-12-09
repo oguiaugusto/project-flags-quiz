@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import LeaveButton from '../components/LeaveButton';
 import SelectFlagsAmount from '../components/SelectFlagsAmount';
 import SelectedContinents from '../components/SelectedContinents';
 
@@ -23,6 +24,7 @@ class Config extends Component {
     this.createContinentsObject = this.createContinentsObject.bind(this);
     this.disableSaveButton = this.disableSaveButton.bind(this);
     this.saveChanges = this.saveChanges.bind(this);
+    this.handleLeave = this.handleLeave.bind(this);
   }
 
   componentWillUnmount() {
@@ -74,6 +76,10 @@ class Config extends Component {
     });
   }
 
+  handleLeave() {
+    this.props.history.push('/');
+  }
+
   render() {
     const {
       flagsAmount,
@@ -107,7 +113,10 @@ class Config extends Component {
         <div className="options">
           <SelectFlagsAmount { ...selectFlagsAmountProps } />
           <SelectedContinents { ...selectedContinentsProps } />
-          <button type="button" onClick={ this.saveChanges } disabled={ this.disableSaveButton() }>Salvar</button>
+          <div className="buttons">
+            <button type="button" onClick={ this.saveChanges } disabled={ this.disableSaveButton() }>Salvar</button>
+            <LeaveButton handleLeave={ this.handleLeave } >Cancelar</LeaveButton>
+          </div>
           {this.disableSaveButton() ? <p className="form-error">Sem bandeiras o suficiente</p> : null}
           {saving ? <p>Salvando...</p> : null}
         </div>

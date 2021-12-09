@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
+import LeaveButton from '../components/LeaveButton';
 
 class About extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleLeave = this.handleLeave.bind(this);
+  }
+
+  handleLeave() {
+    this.props.history.push('/');
+  }
+
   render() {
     return (
       <div className="about-page">
@@ -16,6 +27,7 @@ class About extends Component {
             <BsLinkedin color="#252525" size={ 50 } />
           </a>
         </div>
+        <LeaveButton handleLeave={ this.handleLeave }>Voltar</LeaveButton>
       </div>
     );
   }

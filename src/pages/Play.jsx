@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { shuffleArray } from '../services/utilities';
+import LeaveButton from '../components/LeaveButton';
 
 class Play extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Play extends Component {
     this.nextFlag = this.nextFlag.bind(this);
     this.answer = this.answer.bind(this);
     this.showResults = this.showResults.bind(this);
+    this.handleLeave = this.handleLeave.bind(this);
   };
 
   componentDidMount() {
@@ -82,6 +84,10 @@ class Play extends Component {
       if (name !== correctOption) this.setState({ wrongOption: name });
     });
   }
+
+  handleLeave() {
+    this.props.history.push('/');
+  }
   
   render() {
     const { props: { countries } } = this;
@@ -97,7 +103,13 @@ class Play extends Component {
     } = this.state;
 
     if (!currentCountry) return <Redirect to="/" />;
-    if (endGame) return <p>{`Fim! Pontuação: ${score}`}</p>
+
+    if (endGame) return (
+      <div className="play-page">
+        <p>{`Fim de jogo! Pontuação: ${score}`}</p>
+        <LeaveButton handleLeave={ this.handleLeave }>Reiniciar</LeaveButton>
+      </div>
+    );
 
     const { name: { common } = '', flags: { svg } = '' } = currentCountry;
 
