@@ -70,7 +70,7 @@ class Config extends Component {
     this.setState({ saving: true }, () => {
       this.saveTO = setTimeout(() => {
         this.props.history.push('/');
-      }, 1500);
+      }, 500);
     });
   }
 
