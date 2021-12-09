@@ -42,12 +42,15 @@ class App extends Component {
   }
 
   resetGame() {
-    this.getAllCountries();
+    this.setState({ loading: true }, () => {
+      this.getAllCountries();
+    });
   }
 
   render() {
-    const { allCountries, countries } = this.state;
-    const routesObj = { allCountries, countries, setCountries: this.setCountries, resetGame: this.resetGame };
+    const { allCountries, countries, loading } = this.state;
+    const routesObj = { allCountries, countries, loading, setCountries: this.setCountries, resetGame: this.resetGame };
+    console.log(loading);
     return (
       <>
         <h1>Qual a Bandeira?</h1>
