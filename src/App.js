@@ -52,10 +52,10 @@ class App extends Component {
     const routesObj = { allCountries, countries, loading, setCountries: this.setCountries, resetGame: this.resetGame };
     console.log(loading);
     return (
-      <>
-        <h1>Qual a Bandeira?</h1>
+      <main>
+        <h1>QUAL É A BANDEIRA?</h1>
         <Routes { ...routesObj } />
-      </>
+      </main>
     );
   }
 }
