@@ -23,6 +23,7 @@ class Play extends Component {
     this.setOptions = this.setOptions.bind(this);
     this.nextFlag = this.nextFlag.bind(this);
     this.answer = this.answer.bind(this);
+    this.showResults = this.showResults.bind(this);
   };
 
   componentDidMount() {
@@ -69,17 +70,17 @@ class Play extends Component {
     }, () => this.setOptions());
   }
 
+  showResults() {
+    this.setState({ endGame: true });
+  }
+
   answer({ target: { name } }) {
-    const { props: { countries } } = this;
-    let { score, correctOption, countryIndex } = this.state;
+    let { score, correctOption } = this.state;
 
     if (name === correctOption) score += 1;
     this.setState({ score, correctOptionClass: 'btn btn-option correct' }, () => {
       if (name !== correctOption) this.setState({ wrongOption: name });
     });
-
-    console.log(countries.length)
-    if (countryIndex === countries.length - 1) this.setState({ endGame: true });
   }
   
   render() {
@@ -122,15 +123,25 @@ class Play extends Component {
             </button>
           ))}
         </div>
-        {countryIndex !== countries.length - 1 ? (
-          <button
-            type="button"
-            className="btn btn-next"
-            onClick={ this.nextFlag }
-          >
-            Próxima
-          </button>
-        ) : null}
+        {correctOptionClass === 'btn btn-option' ? null : (
+          countryIndex !== countries.length - 1 ? (
+            <button
+              type="button"
+              className="btn btn-next"
+              onClick={ this.nextFlag }
+            >
+              Próxima
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="btn btn-results"
+              onClick={ this.showResults }
+            >
+              Resultado
+            </button>
+          )
+        )}
       </div>
     );
   }
