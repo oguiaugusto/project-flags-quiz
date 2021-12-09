@@ -88,6 +88,11 @@ class Play extends Component {
   handleLeave() {
     this.props.history.push('/');
   }
+
+  componentWillUnmount() {
+    const { props: { resetGame } } = this;
+    resetGame();
+  }
   
   render() {
     const { props: { countries } } = this;

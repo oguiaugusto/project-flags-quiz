@@ -17,6 +17,7 @@ class App extends Component {
 
     this.getAllCountries = this.getAllCountries.bind(this);
     this.setCountries = this.setCountries.bind(this);
+    this.resetGame = this.resetGame.bind(this);
   }
 
   componentDidMount() {
@@ -40,9 +41,13 @@ class App extends Component {
     this.setState({ countries });
   }
 
+  resetGame() {
+    this.getAllCountries();
+  }
+
   render() {
     const { allCountries, countries } = this.state;
-    const routesObj = { allCountries, countries, setCountries: this.setCountries };
+    const routesObj = { allCountries, countries, setCountries: this.setCountries, resetGame: this.resetGame };
     return (
       <>
         <h1>Qual a Bandeira?</h1>
