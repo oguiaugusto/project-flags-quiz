@@ -18,10 +18,8 @@ class LeaveButton extends Component {
 }
 
 LeaveButton.propTypes = {
-  props: PropTypes.shape({
-    handleLeave: PropTypes.func.isRequired,
-    children: PropTypes.string.isRequired,
-  }),
+  handleLeave: PropTypes.func.isRequired,
+  children: PropTypes.string.isRequired,
 };
 
 export default LeaveButton;
