@@ -13,56 +13,70 @@ class SelectedContinents extends Component {
     } = this.props;
     return (
       <div className="selected-continents">
-        <p className="options-title">Continentes Selecionados</p>
-        <label htmlFor="Africa">
+        <label className="label-toggle" htmlFor="Africa">
           África
-          <input
-            type="checkbox"
-            name="Africa"
-            id="Africa"
-            checked={ Africa }
-            onChange={ handleContinents }
-          />
+          <div className="label-toggle-input">
+            <input
+              type="checkbox"
+              name="Africa"
+              id="Africa"
+              checked={ Africa }
+              onChange={ handleContinents }
+            />
+            <div className="checkbox-toggle"></div>
+          </div>
         </label>
-        <label htmlFor="Americas">
+        <label className="label-toggle" htmlFor="Americas">
           Américas
-          <input
-            type="checkbox"
-            name="Americas"
-            id="Americas"
-            checked={ Americas }
-            onChange={ handleContinents }
-          />
+          <div className="label-toggle-input">
+            <input
+              type="checkbox"
+              name="Americas"
+              id="Americas"
+              checked={ Americas }
+              onChange={ handleContinents }
+            />
+            <div className="checkbox-toggle"></div>
+          </div>
         </label>
-        <label htmlFor="Asia">
+        <label className="label-toggle" htmlFor="Asia">
           Ásia
-          <input
-            type="checkbox"
-            name="Asia"
-            id="Asia"
-            checked={ Asia }
-            onChange={ handleContinents }
-          />
+          <div className="label-toggle-input">
+            <input
+              type="checkbox"
+              name="Asia"
+              id="Asia"
+              checked={ Asia }
+              onChange={ handleContinents }
+            />
+            <div className="checkbox-toggle"></div>
+          </div>
         </label>
-        <label htmlFor="Europe">
+        <label className="label-toggle" htmlFor="Europe">
           Europa
-          <input
-            type="checkbox"
-            name="Europe"
-            id="Europe"
-            checked={ Europe }
-            onChange={ handleContinents }
-          />
+          <div className="label-toggle-input">
+            <input
+              type="checkbox"
+              name="Europe"
+              id="Europe"
+              checked={ Europe }
+              onChange={ handleContinents }
+            />
+            <div className="checkbox-toggle"></div>
+          </div>
         </label>
-        <label htmlFor="Oceania">
+        <label className="label-toggle" htmlFor="Oceania">
           Oceania
-          <input
-            type="checkbox"
-            name="Oceania"
-            id="Oceania"
-            checked={ Oceania }
-            onChange={ handleContinents }
-          />
+          <div className="label-toggle-input">
+            <input
+              type="checkbox"
+              name="Oceania"
+              id="Oceania"
+              checked={ Oceania }
+              onChange={ handleContinents }
+            />
+            <div className="checkbox-toggle"></div>
+          </div>
         </label>
       </div>
     );

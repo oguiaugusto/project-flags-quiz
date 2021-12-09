@@ -1,3 +1,7 @@
+:root {
+  --optionsBackground: linear-gradient(180deg, #424242, #252525);
+}
+
 .btn-option.correct:disabled {
   background-color: green;
 }
@@ -74,4 +78,141 @@ main a {
   display: flex;
   justify-content: space-around;
   width: 130px;
+}
+
+.config-menu {
+  /* height: 460px; */
+  padding: 1rem 1.2rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.config-menu h2 {
+  text-align: center;
+}
+
+.options-title {
+  font-weight: 600;
+  margin-top: 0.3rem;
+  text-align: center;
+}
+
+.options-title:last-of-type {
+  margin-top: 2rem;
+}
+
+.flags-amount {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.6rem 0;
+}
+
+.flags-amount input[type="radio"] {
+  appearance: none;
+  background: #cfcfcf;
+  border-radius: 2px;
+	color: #252525;
+  cursor: pointer;
+  font-weight: 600;
+  height: 100%;
+  outline: none;
+  padding: 0.4rem 2rem;
+  transition: all 100ms linear;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flags-amount input[type="radio"]:checked {
+  background-image: var(--optionsBackground);
+	box-shadow: 0 1px 1px #0000002e;
+	color: #fff;
+}
+
+.flags-amount input[type="radio"]:before {
+	content: attr(label);
+	display: inline-block;
+	text-align: center;
+	width: auto;
+}
+
+.selected-continents {
+  display: flex;
+  flex-direction: column;
+  margin: 0.6rem 0;
+}
+
+.label-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.4rem 1.2rem;
+}
+
+.label-toggle-input {
+  --checkboxWidth: 60px;
+  --checkboxHeight: calc(var(--checkboxWidth) / 2);
+  --checkboxBorderRadius: calc(var(--checkboxHeight) / 2);
+
+  display: inline-block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.label-toggle-input input {
+  display: none;
+}
+
+.checkbox-toggle {
+  position: relative;
+  width: var(--checkboxWidth);
+  height: var(--checkboxHeight);
+  border-radius: var(--checkboxBorderRadius);
+  background: #ddd;
+}
+
+.label-toggle-input input:checked ~ .checkbox-toggle {
+  background: var(--optionsBackground);
+  animation: fadeIn 0.8s;
+}
+
+.checkbox-toggle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--checkboxHeight);
+  width: var(--checkboxHeight);
+  background: #ddd;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  border-radius: var(--checkboxBorderRadius);
+  transition: transform 0.2s;
+}
+
+.label-toggle-input input:checked ~ .checkbox-toggle::after {
+  transform: translateX(var(--checkboxHeight));
+}
+
+.config-menu .buttons button {
+  margin: 0 0.5rem;
+}
+
+.config-menu .form-error {
+  color: red;
+  margin: -0.3rem 0 0.8rem 0;
+  font-size: 0.8rem;
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

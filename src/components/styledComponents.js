@@ -12,7 +12,7 @@ const PageMenu = styled.div`
 `;
 
 const MenuButton = styled.div`
-  
+  cursor: pointer;
   width: 80%;
   a {
     color: #252525;
@@ -41,6 +41,7 @@ const MenuButton = styled.div`
 `;
 
 const Button = styled.button`
+  cursor: pointer;
   padding: 0.8rem 1.2rem;
   font-weight: 600;
   background-color: ${props => props.bgColor};
@@ -48,6 +49,14 @@ const Button = styled.button`
   border: none;
   border-radius: 0.5rem;
   width: ${props => props.width};
+  transition: filter 1s;
+  -webkit-tap-highlight-color: transparent;
+
+  :disabled {
+    filter: saturate(37%);
+    -webkit-filter: saturate(37%);
+    -moz-filter: saturate(37%);
+  }
 `;
 
 Button.defaultProps = {

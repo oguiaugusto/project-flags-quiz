@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader-spinner';
+import { PageMenu } from '../components/styledComponents';
+import { Button } from '../components/styledComponents';
 import LeaveButton from '../components/LeaveButton';
 import SelectFlagsAmount from '../components/SelectFlagsAmount';
 import SelectedContinents from '../components/SelectedContinents';
@@ -109,17 +112,31 @@ class Config extends Component {
 
     return (
       <div className="config-page">
-        <h2>Opções de Jogo</h2>
-        <div className="options">
-          <SelectFlagsAmount { ...selectFlagsAmountProps } />
-          <SelectedContinents { ...selectedContinentsProps } />
-          <div className="buttons">
-            <button type="button" onClick={ this.saveChanges } disabled={ this.disableSaveButton() }>Salvar</button>
-            <LeaveButton handleLeave={ this.handleLeave } >Cancelar</LeaveButton>
+        <PageMenu className="config-menu">  
+          <div className="options">
+            <h2>Opções de Jogo</h2>
+            <p className="options-title">Quantidade de bandeiras</p>
+            <SelectFlagsAmount { ...selectFlagsAmountProps } />
+            <p className="options-title">Continentes Selecionados</p>
+            <SelectedContinents { ...selectedContinentsProps } />
           </div>
+          
           {this.disableSaveButton() ? <p className="form-error">Sem bandeiras o suficiente</p> : null}
-          {saving ? <p>Salvando...</p> : null}
-        </div>
+          {saving ? <Loader type="ThreeDots" color="#252525" height={40} width={40} /> : (
+            <div className="buttons">
+              <Button
+                type="button"
+                onClick={ this.saveChanges }
+                disabled={ this.disableSaveButton() }
+                color="#eee"
+                bgColor="#339438"
+              >
+                Salvar
+              </Button>
+              <LeaveButton handleLeave={ this.handleLeave } >Cancelar</LeaveButton>
+            </div>
+          )}
+        </PageMenu>
       </div>
     );
   }

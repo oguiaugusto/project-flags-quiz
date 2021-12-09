@@ -6,38 +6,28 @@ class SelectFlagsAmount extends Component {
     const { handleRadioChange, defaultCheck } = this.props;
     return (
       <div className="flags-amount">
-        <p className="options-title">Quantidade de bandeiras</p>
-        <label htmlFor="flags-10">
-          <input
-            type="radio"
-            name="flagsAmount"
-            id="flags-10"
-            value="10"
-            checked={ defaultCheck }
-            onChange={ handleRadioChange }
-          />
-          10
-        </label>
-        <label htmlFor="flags-15">
-          <input
-            type="radio"
-            name="flagsAmount"
-            id="flags-15"
-            value="15"
-            onChange={ handleRadioChange }
-          />
-          15
-        </label>
-        <label htmlFor="flags-20">
-          <input
-            type="radio"
-            name="flagsAmount"
-            id="flags-20"
-            value="20"
-            onChange={ handleRadioChange }
-          />
-          20
-        </label>
+        <input
+          type="radio"
+          name="flagsAmount"
+          label="10"
+          value="10"
+          checked={ defaultCheck }
+          onChange={ handleRadioChange }
+        />
+        <input
+          type="radio"
+          name="flagsAmount"
+          label="15"
+          value="15"
+          onChange={ handleRadioChange }
+        />
+        <input
+          type="radio"
+          name="flagsAmount"
+          label="20"
+          value="20"
+          onChange={ handleRadioChange }
+        />
       </div>
     );
   }
