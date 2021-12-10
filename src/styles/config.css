@@ -16,13 +16,13 @@
   text-align: center;
 }
 
-.options-title:last-of-type {
+.continents-container .options-title {
   margin-top: 2rem;
 }
 
 .flags-amount {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: 0.6rem 0;
 }
 
@@ -50,4 +50,45 @@
   -moz-animation: fadeIn ease 1s;
   -o-animation: fadeIn ease 1s;
   -ms-animation: fadeIn ease 1s;
+}
+
+@media screen and (min-width: 769px) {
+  .config-menu .options {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 270px;
+  }
+
+  .continents-container .options-title {
+    margin-top: 0.5rem;
+  }
+
+  .options-title {
+    margin: 0.5rem 0;
+  }
+
+  .flags-amount-container {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    margin: 0;
+  }
+
+  .flags-amount {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: inherit;
+  }
+
+  .continents-container {
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    margin: 0;
+  }
 }

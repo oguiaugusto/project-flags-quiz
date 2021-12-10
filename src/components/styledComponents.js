@@ -13,6 +13,10 @@ const PageMenu = styled.div`
   @media screen and (min-width: 481px) {
     width: 80vw;
   }
+
+  @media screen and (min-width: 769px) {
+    width: 600px;
+  }
 `;
 
 const MenuButton = styled.div`
@@ -52,6 +56,10 @@ const MenuButton = styled.div`
         padding: 0.5rem 0;
       }
     }
+  }
+
+  @media screen and (min-width: 769px) {
+    
   }
 `;
 
@@ -186,6 +194,14 @@ const InputRadio = styled.input`
 
     :before {
       font-size: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    height: auto;
+
+    :before {
+      font-size: 1.5rem
     }
   }
 `;

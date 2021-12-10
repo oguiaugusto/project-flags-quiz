@@ -123,12 +123,16 @@ class Config extends Component {
     return (
       <div className="config-page">
         <PageMenu className="config-menu">  
+          <h2>Opções de Jogo</h2>
           <div className="options">
-            <h2>Opções de Jogo</h2>
-            <p className="options-title">Quantidade de bandeiras</p>
-            <SelectFlagsAmount { ...selectFlagsAmountProps } />
-            <p className="options-title">Continentes Selecionados</p>
-            <SelectedContinents { ...selectedContinentsProps } />
+            <div className="flags-amount-container">
+              <p className="options-title">Quantidade de bandeiras</p>
+              <SelectFlagsAmount { ...selectFlagsAmountProps } />
+            </div>
+            <div className="continents-container">
+              <p className="options-title">Continentes Selecionados</p>
+              <SelectedContinents { ...selectedContinentsProps } />
+            </div>
           </div>
           
           {this.disableSaveButton() ? <p className="form-error">Sem bandeiras o suficiente</p> : null}
