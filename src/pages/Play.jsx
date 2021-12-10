@@ -151,7 +151,7 @@ class Play extends Component {
                   option === wrongOption ? 'btn btn-option wrong' : 'btn btn-option'
                 ) }
                 name={ option }
-                disabled={ correctOptionClass !== 'btn btn-option' }
+                disabled={ correctOptionClass !== 'btn btn-option' || checking }
                 onClick={ this.answer }
               >
                 {option}
