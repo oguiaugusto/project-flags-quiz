@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
+import { InputRadio } from './styledComponents';
 
 class SelectFlagsAmount extends Component {
   render() {
@@ -10,7 +11,7 @@ class SelectFlagsAmount extends Component {
 
     return (
       <div className="flags-amount">
-        <input
+        <InputRadio
           type="radio"
           name="flagsAmount"
           label="10"
@@ -18,7 +19,7 @@ class SelectFlagsAmount extends Component {
           checked={ flagsAmount === 10 }
           onChange={ handleRadioChange }
         />
-        <input
+        <InputRadio
           type="radio"
           name="flagsAmount"
           label="15"
@@ -26,7 +27,7 @@ class SelectFlagsAmount extends Component {
           checked={ flagsAmount === 15 }
           onChange={ handleRadioChange }
         />
-        <input
+        <InputRadio
           type="radio"
           name="flagsAmount"
           label="20"

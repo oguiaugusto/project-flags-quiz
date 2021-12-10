@@ -137,10 +137,37 @@ const LabelToggle = styled.label`
   }
 `;
 
+const InputRadio = styled.input`
+  appearance: none;
+  background: #cfcfcf;
+  border-radius: 2px;
+  color: #252525;
+  cursor: pointer;
+  font-weight: 600;
+  height: 100%;
+  outline: none;
+  padding: 0.4rem 2rem;
+  transition: all 100ms linear;
+  -webkit-tap-highlight-color: transparent;
+
+  :checked {
+    background-image: var(--optionsBackground);
+    box-shadow: 0 1px 1px #0000002e;
+    color: #fff;
+  }
+
+  :before {
+    content: attr(label);
+    display: inline-block;
+    text-align: center;
+    width: auto;
+  }
+`;
+
 Button.defaultProps = {
   bgColor: 'white',
   color: 'black',
   width: 'auto',
 };
 
-export { PageMenu, MenuButton, Button, OptionButton, LabelToggle };
+export { PageMenu, MenuButton, Button, OptionButton, LabelToggle, InputRadio };
