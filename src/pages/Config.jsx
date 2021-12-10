@@ -6,6 +6,7 @@ import { Button } from '../components/styledComponents';
 import LeaveButton from '../components/LeaveButton';
 import SelectFlagsAmount from '../components/SelectFlagsAmount';
 import SelectedContinents from '../components/SelectedContinents';
+import '../styles/config.css';
 
 class Config extends Component {
   constructor(props) {

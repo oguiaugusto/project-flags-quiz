@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import LeaveButton from '../components/LeaveButton';
 import { PageMenu } from '../components/styledComponents';
+import '../styles/about.css';
 
 class About extends Component {
   constructor(props) {

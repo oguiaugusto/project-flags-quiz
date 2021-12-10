@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 import { PageMenu, MenuButton } from '../components/styledComponents';
+import '../styles/home.css';
 
 class Home extends Component {
   render() {

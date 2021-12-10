@@ -1,0 +1,8 @@
+.home-menu {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+}
