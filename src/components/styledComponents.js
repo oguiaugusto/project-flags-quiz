@@ -9,6 +9,10 @@ const PageMenu = styled.div`
   width: 90vw;
   -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
   -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.2);
+
+  @media screen and (min-width: 481px) {
+    width: 80vw;
+  }
 `;
 
 const MenuButton = styled.div`
@@ -28,6 +32,8 @@ const MenuButton = styled.div`
       margin: 0.5rem 0;
       padding: 0.2rem 0;
       text-align: center;
+      
+      
     }
   }
 
@@ -38,6 +44,14 @@ const MenuButton = styled.div`
 
   :hover a, :active a {
     color: #eee;
+  }
+
+  @media screen and (min-width: 481px) {
+    a {
+      div {
+        padding: 0.5rem 0;
+      }
+    }
   }
 `;
 
@@ -74,6 +88,10 @@ const OptionButton = styled.button`
   :hover, :active {
     background-color: #313131;
     color: #eee;
+  }
+
+  @media screen and (min-width: 481px) {
+    font-size: 1rem;
   }
 `;
 
@@ -161,6 +179,14 @@ const InputRadio = styled.input`
     display: inline-block;
     text-align: center;
     width: auto;
+  }
+
+  @media screen and (min-width: 481px) {
+    margin: 0 0.8rem;
+
+    :before {
+      font-size: 1rem;
+    }
   }
 `;
 

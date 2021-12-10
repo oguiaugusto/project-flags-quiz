@@ -16,6 +16,7 @@
 .about-menu p {
   text-align: justify;
   line-height: 1.3rem;
+  text-align: center;
 }
 
 .about-menu p a {
@@ -37,4 +38,11 @@
 
 .about-page .border-button {
   width: 100%;
+}
+
+@media screen and (min-width: 481px) {
+  .about-menu p {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
 }
