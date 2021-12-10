@@ -23,15 +23,26 @@ class Config extends Component {
     };
 
     this.handleRadioChange = this.handleRadioChange.bind(this);
+    this.setInitialFlagsAmount = this.setInitialFlagsAmount.bind(this);
     this.handleContinents = this.handleContinents.bind(this);
-    this.createContinentsObject = this.createContinentsObject.bind(this);
+    this.createContinentObjects = this.createContinentObjects.bind(this);
     this.disableSaveButton = this.disableSaveButton.bind(this);
     this.saveChanges = this.saveChanges.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
   }
 
+  componentDidMount() {
+    this.setInitialFlagsAmount();
+  }
+
   componentWillUnmount() {
     clearTimeout(this.saveTO);
+  }
+
+  setInitialFlagsAmount() {
+    const { props: { countriesAmount: flagsAmount, continents } } = this;
+    continents.forEach(({ name, selected }) => this.setState({ [name]: selected }));
+    this.setState({ flagsAmount });
   }
 
   handleRadioChange({ target: { name, value, checked }}) {
@@ -42,7 +53,7 @@ class Config extends Component {
     this.setState({ [name]: checked });
   }
 
-  createContinentsObject() {
+  createContinentObjects() {
     const { Africa, Americas, Asia, Europe, Oceania } = this.state;
     return Object
       .entries({ Africa, Americas, Asia, Europe, Oceania })
@@ -51,7 +62,7 @@ class Config extends Component {
 
   disableSaveButton() {
     const { flagsAmount } = this.state;
-    const continents = this.createContinentsObject();
+    const continents = this.createContinentObjects();
 
     const noOceania = (
       continents.filter(({ name }) => name !== 'Oceania').every(({ selected }) => !selected)
@@ -66,7 +77,7 @@ class Config extends Component {
   }
 
   saveChanges() {
-    const continents = this.createContinentsObject().filter(({ selected }) => selected);
+    const continents = this.createContinentObjects();
 
     const { setCountries } = this.props;
     const { flagsAmount } = this.state;
@@ -94,11 +105,9 @@ class Config extends Component {
       saving,
     } = this.state;
 
-    const defaultCheck = flagsAmount === 10;
-
     const selectFlagsAmountProps = {
       handleRadioChange: this.handleRadioChange,
-      defaultCheck: defaultCheck,
+      flagsAmount,
     };
 
     const selectedContinentsProps = {
@@ -144,6 +153,7 @@ class Config extends Component {
 
 Config.propTypes = {
   setCountries: PropTypes.func.isRequired,
+  countriesAmount: PropTypes.number.isRequired,
 };
 
 export default Config;

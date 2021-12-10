@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       allCountries: [],
       countries: [],
+      continents: defaultContinents,
 
       loading: true,
     };
@@ -31,14 +32,17 @@ class App extends Component {
     });
   }
 
-  setCountries(continents = defaultContinents, amount = 10) {
-    const { allCountries } = this.state;
-    const countriesArr = continents.map(({ name }) => (
-      allCountries.filter(({ region }) => region === name)
-    ));
-
-    const countries = getRandomCountries(countriesArr, amount).sort(() => Math.random() - 0.5);
-    this.setState({ countries });
+  setCountries(continentsConfig = defaultContinents, amount = 10) {
+    this.setState({ continents: continentsConfig }, () => {
+      const { continents, allCountries } = this.state;
+      const countriesArr = continents.filter(({ selected }) => selected)
+        .map(({ name }) => (
+          allCountries.filter(({ region }) => region === name)
+        ));
+  
+      const countries = getRandomCountries(countriesArr, amount).sort(() => Math.random() - 0.5);
+      this.setState({ countries });
+    })
   }
 
   resetGame() {
@@ -48,9 +52,15 @@ class App extends Component {
   }
 
   render() {
-    const { allCountries, countries, loading } = this.state;
-    const routesObj = { allCountries, countries, loading, setCountries: this.setCountries, resetGame: this.resetGame };
-    console.log(loading);
+    const { allCountries, countries, continents, loading } = this.state;
+    const routesObj = {
+      allCountries,
+      countries,
+      loading,
+      setCountries: this.setCountries,
+      resetGame: this.resetGame,
+      continents,
+    };
     return (
       <main>
         <h1>QUAL É A BANDEIRA?</h1>
