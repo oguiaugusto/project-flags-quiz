@@ -77,10 +77,70 @@ const OptionButton = styled.button`
   }
 `;
 
+const LabelToggle = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.4rem 1.2rem;
+
+  div.label-toggle-input {
+    --checkboxWidth: 60px;
+    --checkboxHeight: calc(var(--checkboxWidth) / 2);
+    --checkboxBorderRadius: calc(var(--checkboxHeight) / 2);
+
+    display: inline-block;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  div.label-toggle-input input {
+    display: none;
+  }
+
+  div.checkbox-toggle {
+    position: relative;
+    width: var(--checkboxWidth);
+    height: var(--checkboxHeight);
+    border-radius: var(--checkboxBorderRadius);
+    background: #ddd;
+  }
+
+  div.label-toggle-input input:checked ~ div.checkbox-toggle {
+    background: var(--optionsBackground);
+    animation: fadeIn 0.8s;
+  }
+
+  div.checkbox-toggle::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: var(--checkboxHeight);
+    width: var(--checkboxHeight);
+    background: #ddd;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    border-radius: var(--checkboxBorderRadius);
+    transition: transform 0.2s;
+  }
+
+  div.label-toggle-input input:checked ~ div.checkbox-toggle::after {
+    transform: translateX(var(--checkboxHeight));
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
 Button.defaultProps = {
   bgColor: 'white',
   color: 'black',
   width: 'auto',
 };
 
-export { PageMenu, MenuButton, Button, OptionButton };
+export { PageMenu, MenuButton, Button, OptionButton, LabelToggle };

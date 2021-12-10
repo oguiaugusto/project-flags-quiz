@@ -59,57 +59,6 @@
   margin: 0.6rem 0;
 }
 
-.label-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0.4rem 1.2rem;
-}
-
-.label-toggle-input {
-  --checkboxWidth: 60px;
-  --checkboxHeight: calc(var(--checkboxWidth) / 2);
-  --checkboxBorderRadius: calc(var(--checkboxHeight) / 2);
-
-  display: inline-block;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.label-toggle-input input {
-  display: none;
-}
-
-.checkbox-toggle {
-  position: relative;
-  width: var(--checkboxWidth);
-  height: var(--checkboxHeight);
-  border-radius: var(--checkboxBorderRadius);
-  background: #ddd;
-}
-
-.label-toggle-input input:checked ~ .checkbox-toggle {
-  background: var(--optionsBackground);
-  animation: fadeIn 0.8s;
-}
-
-.checkbox-toggle::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: var(--checkboxHeight);
-  width: var(--checkboxHeight);
-  background: #ddd;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-  border-radius: var(--checkboxBorderRadius);
-  transition: transform 0.2s;
-}
-
-.label-toggle-input input:checked ~ .checkbox-toggle::after {
-  transform: translateX(var(--checkboxHeight));
-}
-
 .config-menu .buttons {
   display: flex;
   justify-content: center;
@@ -128,13 +77,4 @@
   -moz-animation: fadeIn ease 1s;
   -o-animation: fadeIn ease 1s;
   -ms-animation: fadeIn ease 1s;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }

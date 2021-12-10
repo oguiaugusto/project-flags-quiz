@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { LabelToggle } from './styledComponents';
 
 class SelectedContinents extends Component {
   render() {
@@ -13,7 +14,7 @@ class SelectedContinents extends Component {
     } = this.props;
     return (
       <div className="selected-continents">
-        <label className="label-toggle" htmlFor="Africa">
+        <LabelToggle htmlFor="Africa">
           África
           <div className="label-toggle-input">
             <input
@@ -25,8 +26,8 @@ class SelectedContinents extends Component {
             />
             <div className="checkbox-toggle"></div>
           </div>
-        </label>
-        <label className="label-toggle" htmlFor="Americas">
+        </LabelToggle>
+        <LabelToggle htmlFor="Americas">
           Américas
           <div className="label-toggle-input">
             <input
@@ -38,8 +39,8 @@ class SelectedContinents extends Component {
             />
             <div className="checkbox-toggle"></div>
           </div>
-        </label>
-        <label className="label-toggle" htmlFor="Asia">
+        </LabelToggle>
+        <LabelToggle htmlFor="Asia">
           Ásia
           <div className="label-toggle-input">
             <input
@@ -51,8 +52,8 @@ class SelectedContinents extends Component {
             />
             <div className="checkbox-toggle"></div>
           </div>
-        </label>
-        <label className="label-toggle" htmlFor="Europe">
+        </LabelToggle>
+        <LabelToggle htmlFor="Europe">
           Europa
           <div className="label-toggle-input">
             <input
@@ -64,8 +65,8 @@ class SelectedContinents extends Component {
             />
             <div className="checkbox-toggle"></div>
           </div>
-        </label>
-        <label className="label-toggle" htmlFor="Oceania">
+        </LabelToggle>
+        <LabelToggle htmlFor="Oceania">
           Oceania
           <div className="label-toggle-input">
             <input
@@ -77,7 +78,7 @@ class SelectedContinents extends Component {
             />
             <div className="checkbox-toggle"></div>
           </div>
-        </label>
+        </LabelToggle>
       </div>
     );
   }
