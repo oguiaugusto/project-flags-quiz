@@ -17,6 +17,10 @@ const PageMenu = styled.div`
   @media screen and (min-width: 769px) {
     width: 600px;
   }
+
+  @media screen and (min-width: 1025px) {
+    width: 800px;
+  }
 `;
 
 const MenuButton = styled.div`
@@ -58,8 +62,8 @@ const MenuButton = styled.div`
     }
   }
 
-  @media screen and (min-width: 769px) {
-    
+  @media screen and (min-width: 1025px) {
+    width: 60%;
   }
 `;
 

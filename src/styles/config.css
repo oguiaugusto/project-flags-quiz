@@ -58,6 +58,7 @@
     justify-content: space-around;
     align-items: flex-start;
     height: 270px;
+    width: 80%;
   }
 
   .continents-container .options-title {
