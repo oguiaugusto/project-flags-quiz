@@ -2,14 +2,6 @@
   --optionsBackground: linear-gradient(180deg, #424242, #252525);
 }
 
-.btn-option.correct:disabled {
-  background-color: green;
-}
-
-.btn-option.wrong:disabled {
-  background-color: red;
-}
-
 main {
   height: 100vh;
   padding: 1.5rem 0;
@@ -32,4 +24,14 @@ main h1 {
 main a {
   text-decoration: none;
   color: #252525;
+}
+
+.border-button {
+  width: max-content;
+  border: 1px solid rgb(0, 0, 0);
+  font-family: 'Passion One', cursive;
+  -webkit-box-shadow: 3px 4px 0px 0px rgb(0,0,0);
+  -moz-box-shadow: 3px 4px 0px 0px rgb(0,0,0);
+  box-shadow: 3px 4px 0px 0px rgb(0,0,0);
+  border-radius: 0.6rem;
 }

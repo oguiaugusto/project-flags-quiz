@@ -134,16 +134,20 @@ class Config extends Component {
           {this.disableSaveButton() ? <p className="form-error">Sem bandeiras o suficiente</p> : null}
           {saving ? <Loader type="ThreeDots" color="#252525" height={40} width={40} /> : (
             <div className="buttons">
-              <Button
-                type="button"
-                onClick={ this.saveChanges }
-                disabled={ this.disableSaveButton() }
-                color="#eee"
-                bgColor="#339438"
-              >
-                Salvar
-              </Button>
-              <LeaveButton handleLeave={ this.handleLeave } >Cancelar</LeaveButton>
+              <div className="border-button">
+                <Button
+                  type="button"
+                  onClick={ this.saveChanges }
+                  disabled={ this.disableSaveButton() }
+                  color="#eee"
+                  bgColor="#339438"
+                >
+                  Salvar
+                </Button>
+              </div>
+              <div className="border-button">
+                <LeaveButton handleLeave={ this.handleLeave } >Cancelar</LeaveButton>
+              </div>
             </div>
           )}
         </PageMenu>

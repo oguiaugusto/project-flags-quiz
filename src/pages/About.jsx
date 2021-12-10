@@ -36,7 +36,9 @@ class About extends Component {
             </a>
           </div>
         </PageMenu>
-        <LeaveButton handleLeave={ this.handleLeave } width="100%">Voltar</LeaveButton>
+        <div className="border-button">
+          <LeaveButton handleLeave={ this.handleLeave } width="100%">Voltar</LeaveButton>
+        </div>
       </div>
     );
   }

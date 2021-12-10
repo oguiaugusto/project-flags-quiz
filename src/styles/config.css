@@ -110,8 +110,13 @@
   transform: translateX(var(--checkboxHeight));
 }
 
-.config-menu .buttons button {
-  margin: 0 0.5rem;
+.config-menu .buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons .border-button {
+  margin: 0.5rem 0.6rem;
 }
 
 .config-menu .form-error {

@@ -34,3 +34,7 @@
   justify-content: space-around;
   width: 130px;
 }
+
+.about-page .border-button {
+  width: 100%;
+}

@@ -14,6 +14,7 @@ const PageMenu = styled.div`
 const MenuButton = styled.div`
   cursor: pointer;
   width: 80%;
+  -webkit-tap-highlight-color: transparent;
   a {
     color: #252525;
     font-size: 1.5rem;
@@ -59,10 +60,27 @@ const Button = styled.button`
   }
 `;
 
+const OptionButton = styled.button`
+  cursor: pointer;
+  padding: 0.8rem 1.2rem;
+  font-weight: 600;
+  background-color: #252525;
+  color: #eee;
+  border: none;
+  border-radius: 0.5rem;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+
+  :hover, :active {
+    background-color: #313131;
+    color: #eee;
+  }
+`;
+
 Button.defaultProps = {
   bgColor: 'white',
   color: 'black',
   width: 'auto',
 };
 
-export { PageMenu, MenuButton, Button };
+export { PageMenu, MenuButton, Button, OptionButton };
